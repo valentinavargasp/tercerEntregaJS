@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300&family=Sora:wght@100;200&family=Trocchi&display=swap");
+
+/*RESET DEL INDEX*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sora";
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: rgb(242, 241, 235);
+}
+
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+
+#footer {
+  height: auto;
+  padding: 10px 10px;
+  width: 100%;
+  background-color: rgb(136, 171, 142);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: auto;
+}
+.footer__logo img {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: end;
+}
+
+#loginSection,
+#registerSection,
+#welcomeMessage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#registerSection h3 {
+  margin-top: 30px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="registerSection">
+        <h2>Registrarse</h2>
+        <form id="registerForm">
+            <label for="newUsername">Nombre de usuario:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <br>
+            <label for="newPassword">Contraseña:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <br>
+            <label for="confirmPassword">Confirmar contraseña:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <br>
+            <button type="submit">Registrarse</button>
+        </form>
+        <h3> Si ya te encuentras registrado/a:</h3>
+    </div>
+    <div id="loginSection">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <div id="welcomeMessage" style="display: none;">
+        <h2 id="welcomeText">¡Bienvenido/a!</h2>
+        <p>¡Has iniciado sesión correctamente <span id="welcomeUsername"></span>!</p>
+    </div>
+
+    <h1>Selección de turnos</h1>
+    <div id="calendario"></div>
+    <button id="guardar">Guardar selección</button>
+    
+    <script src="main.js"></script>
+</body>
+
+<footer id="footer">
+    <!--CAJA#1 Logo-->
+    <article class="footer__logo">
+        <img src="images/logo blanco.png" alt="logoblanco" />
+    </article>
+</html>
