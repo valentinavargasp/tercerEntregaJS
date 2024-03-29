@@ -1,51 +1,114 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turnos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    </head>
+
 <body>
-    <div id="registerSection">
-        <h2>Registrarse</h2>
-        <form id="registerForm">
-            <label for="newUsername">Nombre de usuario:</label>
-            <input type="text" id="newUsername" name="newUsername" required>
-            <br>
-            <label for="newPassword">Contraseña:</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-            <br>
-            <label for="confirmPassword">Confirmar contraseña:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-            <br>
-            <button type="submit">Registrarse</button>
-        </form>
-        <h3> Si ya te encuentras registrado/a:</h3>
-    </div>
-    <div id="loginSection">
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm">
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-    </div>
+    <section id="encabezadoTurnos">
+        <article class="titulo estiloTurno additionalText">
+            <h1>Registrate como paciente</h1>
+        </article>
+        <article class="parrafo estiloTurno additionalText">
+            <p>Nos esforzamos por ofrecer horarios flexibles que se adapten a tus necesidades. Puedes programar sesiones
+                con nuestros profesionales en psicología en línea en los siguientes horarios:</p>
+        </article>
+        <article class="parrafo estiloTurno additionalText">
+            <p>
+                Lunes a Viernes: 8:30 a 13:30 y de 17:00 a 21:00
+            </p>
+        </article>
+        <article class="final estiloTurno additionalText">
+            <p>Nos preocupamos por tu comodidad y estamos dispuestos a trabajar contigo para encontrar el momento
+                adecuado para tus sesiones de terapia.</p>
+        </article>
+        <div id="registerSection">
+            <h2>Registrarse</h2>
+            <form id="registerForm">
+                <label for="nameUser">Nombre:</label>
+                <input type="text" id="nameUser" name="nameUser" required>
+                <br>
+                <label for="lastNameUser">Apellido:</label>
+                <input type="text" id="lastNameUser" name="lastNameUser" required>
+                <br>
+                <label for="newUsername">Nombre de usuario:</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <br>
+                <label for="newPassword">Contraseña:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <br>
+                <label for="confirmPassword">Confirmar contraseña:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <h3 class="additionalText"> Si ya te encuentras registrado/a:</h3>
+        <div id="loginSection">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
 
-    <div id="welcomeMessage" style="display: none;">
-        <h2 id="welcomeText">¡Bienvenido/a!</h2>
-        <p>¡Has iniciado sesión correctamente <span id="welcomeUsername"></span>!</p>
-    </div>
+        <div id="welcomeMessage" style="display: none;">
+            <h2 id="welcomeText">¡Bienvenido/a!</h2>
+            <p>¡Has iniciado sesión correctamente <span id="welcomeUsername"></span>!</p>
+        </div>
 
-    <h1>Selección de turnos</h1>
-    <div id="calendario"></div>
-    <button id="guardar">Guardar selección</button>
-    
+        <div>
+            <form id="formularioTurno"  style="display: none;">
+                <div class="mb-3">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required />
+                </div>
+                <div class="mb-3">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required />
+                </div>
+                <div class="mb-3">
+                    <label for="especialidad">Especialidad del médico</label>
+                    <select class="form-select" id="especialidad" name="especialidad" required>
+                        <option value="" disabled selected>Elige una terapia</option>
+                        <option value="Psicoterapia Niños">Psicoterapia Niños</option>
+                        <option value="Psicoterapia Adolescentes">Psicoterapia Adolescentes</option>
+                        <option value="Psicoterapia Adultos">Psicoterapia Adultos</option>
+                        <option value="Psicoterapia Parejas">Psicoterapia Parejas</option>
+                        <option value="Orientación Vocacional">Orientación Vocacional</option>
+                    </select>
+                    <label for="profesional">Selecciona un profesional:</label>
+                    <select class="form-select" id="profesional" name="profesional required>
+                        <option value="" selected>Elige un profesional</option>
+                    </select>
+                </div>
+                <div class=" mb-3">
+                        <label for="fecha">Fecha de la cita</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" required />
+                </div>
+                <div class="mb-3">
+                    <label for="hora">Hora de la cita</label>
+                    <input type="time" class="form-control" id="hora" name="hora" required step="3600" />
+                </div>
+                <button type="submit" class="btn btn-success" onclick="guardarTurno()">
+                    Reservar turno
+                </button>
+            </form>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 <footer id="footer">
@@ -53,4 +116,5 @@
     <article class="footer__logo">
         <img src="images/logo blanco.png" alt="logoblanco" />
     </article>
+
 </html>

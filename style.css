@@ -20,15 +20,15 @@ main {
 }
 
 
-#footer {
-  height: auto;
-  padding: 10px 10px;
-  width: 100%;
-  background-color: rgb(136, 171, 142);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: auto;
+  #footer {
+    height: 250px;
+    padding: 10px 10px;
+    width: 100%;
+    background-color: rgb(136, 171, 142);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: auto;
 }
 .footer__logo img {
   width: 100px;
@@ -39,7 +39,8 @@ main {
 
 #loginSection,
 #registerSection,
-#welcomeMessage {
+#welcomeMessage,
+#formularioTurno {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -49,4 +50,57 @@ main {
 }
 #registerSection h3 {
   margin-top: 30px;
+}
+#registerSection,
+#loginSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 20px;
+  width: 450px;
+  background-color: rgb(175, 200, 173);
+  padding: 30px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+#formularioTurno {
+    margin-top: 30px;
+  font-size: 20px;
+  width: 450px;
+  background-color: rgb(175, 200, 173);
+  padding: 30px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+
+/*ESTILOS MAIN TURNOS*/
+#encabezadoTurnos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  margin: auto;
+  margin-top: 20px;
+  gap: 15px;
+}
+.estiloTurno {
+  text-align: center;
+  width: 80%;
+  font-size: 20px;
+}
+#encabezadoTurnos h1 {
+  font-size: 25px;
+}
+
+#encabezadoTurnos p {
+  text-justify: auto;
+  font-size: 20px;
+}
+.profesional {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
 }
