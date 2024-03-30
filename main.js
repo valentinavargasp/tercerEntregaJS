@@ -1,46 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
     const terapiaSelect = document.getElementById('especialidad');
     const profesionalSelect = document.getElementById('profesional');
+
     // Event listener para cambios en la selección de terapia
     terapiaSelect.addEventListener('change', function () {
         const terapiaSeleccionada = terapiaSelect.value;
         profesionalSelect.innerHTML = '<option value="" disabled selected>Elige un profesional</option>';
         if (terapiaSeleccionada !== '') {
-            const profesionalesTerapia = profesionales[terapiaSeleccionada];
-            if (profesionalesTerapia) {
-                profesionalesTerapia.forEach(profesional => {
-                    const option = document.createElement('option');
-                    option.value = profesional.nombre;
-                    option.textContent = `${profesional.nombre} - Disponible: ${profesional.diasDisponibles.join(', ')} - ${profesional.horario}`;
-                    profesionalSelect.appendChild(option);
-                });
-            }
+            fetch('profesionales.json') // Profesinales desde archivo JSON
+                .then(response => response.json())
+                .then(data => {
+                    const profesionalesTerapia = data[terapiaSeleccionada];
+                    if (profesionalesTerapia) {
+                        profesionalesTerapia.forEach(profesional => {
+                            const option = document.createElement('option');
+                            option.value = profesional.nombre;
+                            option.textContent = `${profesional.nombre} - Disponible: ${profesional.diasDisponibles.join(', ')} - ${profesional.horario}`;
+                            profesionalSelect.appendChild(option);
+                        });
+                    }
+                })
         }
     });
 });
-
-const profesionales = {
-    "Psicoterapia Niños": [
-        { nombre: "Carlos Martínez Lic. en Psicología MP 5678", diasDisponibles: ["Lunes", "Miércoles"], horario: "09:00 - 12:00" },
-        { nombre: "María López Lic. en Psicología MP 1234", diasDisponibles: ["Martes", "Jueves"], horario: "13:00 - 16:00" }
-    ],
-    "Psicoterapia Adolescentes": [
-        { nombre: "Laura Rodríguez Lic. en Psicología MP 9012", diasDisponibles: ["Lunes", "Miércoles", "Viernes"], horario: "10:00 - 13:00" },
-        { nombre: "Ana García Lic. en Psicología MP 7890", diasDisponibles: ["Martes", "Jueves"], horario: "15:00 - 18:00" }
-    ],
-    "Psicoterapia Adultos": [
-        { nombre: "Marta Ruiz Lic. en Psicología MP 4567", diasDisponibles: ["Lunes", "Miércoles", "Viernes"], horario: "09:00 - 12:00" },
-        { nombre: "Pablo Herrera Lic. en Psicología MP 8901", diasDisponibles: ["Martes", "Jueves"], horario: "13:00 - 16:00" }
-    ],
-    "Psicoterapia Parejas": [
-        { nombre: "Ana Belén Flores Lic. en Psicología MP 8765", diasDisponibles: ["Lunes", "Miércoles", "Viernes"], horario: "10:00 - 13:00" },
-        { nombre: "Andrés Sánchez Lic. en Psicología MP 3456", diasDisponibles: ["Martes", "Jueves"], horario: "15:00 - 18:00" }
-    ],
-    "Orientación Vocacional": [
-        { nombre: "Sofía Gutiérrez Lic. en Psicología MP 2345", diasDisponibles: ["Lunes", "Miércoles", "Viernes"], horario: "09:00 - 12:00" },
-        { nombre: "José Martín Lic. en Psicología MP 6789", diasDisponibles: ["Martes", "Jueves"], horario: "13:00 - 16:00" }
-    ]
-};
 
 // Evento de inicio de sesión
 loginForm.addEventListener("submit", function (event) {
